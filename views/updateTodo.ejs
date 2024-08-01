@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="/styles.css">
+    
+    <title>Schedule Planner</title>
+</head>
+<body>
+    <%- include ('partials/navbar.ejs') %>
+    <div class="container mt-3">
+        <h2>Update things to do</h2>
+
+    <% if (todo) { %> 
+                <!-- for form tag to update todo info -->
+        <form action="/todos/<%= todo.todoId %>/update" method="POST">
+            <div class="mb-3 mt-3">
+                <label for="description">Short Description:</label>
+                <!-- to display original name of todo in the value property -->
+                <input type="text" class="form-control" id="description" value = "<%= todo.description %>" placeholder="Enter short description" name="description" maxlength="100">
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="note">Note:</label>
+                <!-- to display original name of todo in the value property -->
+                <textarea class="form-control" id="note" placeholder="Enter note (200 Characters Max)" name="note" maxlength="200" rows="4"><%= todo.note %></textarea>
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="starttime">Start:</label>
+                <!-- to display original name of todo in the value property -->
+                <input type="time" class="form-control" id="starttime" value = "<%= todo.starttime %>" placeholder="Enter start time" name="starttime"> 
+            </div>
+            <div class="mb-3 mt-3">
+                <label for="endtime">End:</label>
+                <!-- to display original name of todo in the value property -->
+                <input type="time" class="form-control" id="endtime" value = "<%= todo.endtime %>" placeholder="Enter end time" name="endtime">
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        <% } else { %>
+            <p>No to-do found.</p>
+        <% } %>
+        <a href ="/list">Back</a>
+    </div>
+</body>
+</html>

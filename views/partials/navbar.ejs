@@ -1,0 +1,27 @@
+<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">Schedule Planner</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mynavbar">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="/" role="button" data-bs-toggle="dropdown">Calendar</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="dailycalendar">Daily</a></li>
+              <li><a class="dropdown-item" href="/">Display Events</a></li>
+            </ul>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/list">View To-Do List</a>
+        </li>
+      </ul>
+      <form class="d-flex" action="/results" method="GET">
+        <input class="form-control me-2" type="text" placeholder="Search Events in Calendar" name="query">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </form>
+
+    </div>
+  </div>
+</nav>
